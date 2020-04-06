@@ -6,4 +6,5 @@
     <string name="label_ratings">Ratings</string>
     <string name="label_deal_price">Deal Price</string>
     <string name="label_original">Original</string>
+    <string name="description_thumb">Game thumbnail</string>
 </resources>
