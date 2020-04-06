@@ -13,8 +13,7 @@ class TopRatedFragment : BaseListFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (listAdapter as DataBindingRecyclerAdapter<TopGame>).items.addAll(getDummyTopGames())
-        listAdapter.notifyDataSetChanged()
+        (listAdapter as DataBindingRecyclerAdapter<TopGame>).setItems(getDummyTopGames())
     }
 
     override fun getAdapter(): RecyclerView.Adapter<*> =

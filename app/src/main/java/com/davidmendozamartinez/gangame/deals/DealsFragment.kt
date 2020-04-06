@@ -13,8 +13,7 @@ class DealsFragment : BaseListFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (listAdapter as DataBindingRecyclerAdapter<Deal>).items.addAll(getDummyDeals())
-        listAdapter.notifyDataSetChanged()
+        (listAdapter as DataBindingRecyclerAdapter<Deal>).setItems(getDummyDeals())
     }
 
     override fun getAdapter(): RecyclerView.Adapter<*> =
@@ -25,7 +24,11 @@ class DealsFragment : BaseListFragment() {
         arrayListOf(
             Deal(
                 "Counter Strike",
-                0.99F, 9.99F, 80, 80, "https://cdn.steamstatic.com/steam/apps/10/capsule_184x69.jpg"
+                0.99F,
+                9.99F,
+                80,
+                80,
+                "https://cdn.steamstatic.com/steam/apps/10/capsule_184x69.jpg"
             )
         )
 }

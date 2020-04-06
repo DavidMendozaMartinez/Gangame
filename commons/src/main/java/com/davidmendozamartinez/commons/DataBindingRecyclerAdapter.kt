@@ -11,7 +11,7 @@ class DataBindingRecyclerAdapter<MODEL>(
     private val itemLayoutResId: Int
 ) :
     RecyclerView.Adapter<DataBindingViewHolder<MODEL>>() {
-    val items = mutableListOf<MODEL>()
+    private val items = mutableListOf<MODEL>()
 
     override fun getItemCount(): Int {
         return items.size
@@ -33,5 +33,11 @@ class DataBindingRecyclerAdapter<MODEL>(
     override fun onBindViewHolder(holder: DataBindingViewHolder<MODEL>, position: Int) {
         val item = items[position]
         holder.bindItem(item)
+    }
+
+    fun setItems(items: MutableList<MODEL>) {
+        this.items.clear()
+        this.items.addAll(items)
+        notifyDataSetChanged()
     }
 }
