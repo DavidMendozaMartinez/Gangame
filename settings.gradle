@@ -1,3 +1,4 @@
 rootProject.name='Gangame'
 include ':app'
 include ':commons'
+include ':sdk'
