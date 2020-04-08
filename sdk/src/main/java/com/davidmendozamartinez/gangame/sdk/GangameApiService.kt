@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class GangameApiService {
+class GangameApiService(apiConfig: GangameApiConfig = GangameClientConfig()) {
 
     private val apiClient: RetrofitGangameApi
 
@@ -18,8 +18,8 @@ class GangameApiService {
             Retrofit.Builder()
                 .baseUrl(Routes.BASE_URL_STEAM_SPY)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .build()
 
-        apiClient = apiClientConfig.create(RetrofitGangameApi::class.java)
+        apiConfig.setupConfig(apiClientConfig)
+        apiClient = apiClientConfig.build().create(RetrofitGangameApi::class.java)
     }
 }
