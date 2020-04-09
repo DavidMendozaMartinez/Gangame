@@ -1,17 +1,22 @@
 package com.davidmendozamartinez.gangame.sdk
 
+import com.davidmendozamartinez.gangame.sdk.serializer.ListTopGameDeserializer
 import com.davidmendozamartinez.gangame.sdk.serializer.TopGameDeserializer
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class GangameApiService(apiConfig: GangameApiConfig = GangameClientConfig()) {
 
-    private val apiClient: RetrofitGangameApi
+    val apiClient: RetrofitGangameApi
 
     init {
+        val arrayListTopGameTokenType = object : TypeToken<ArrayList<TopGame>>() {}.type
+
         val gson = GsonBuilder()
             .registerTypeAdapter(TopGame::class.java, TopGameDeserializer())
+            .registerTypeAdapter(arrayListTopGameTokenType, ListTopGameDeserializer())
             .create()
 
         val apiClientConfig =
