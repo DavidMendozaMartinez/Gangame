@@ -122,7 +122,7 @@
                 android:drawableStart="@drawable/ic_owners"
                 android:drawableLeft="@drawable/ic_owners"
                 android:drawablePadding="4dp"
-                android:text="@{ String.valueOf(topGame.owners) }"
+                android:text="@{ topGame.owners }"
                 android:textColor="@color/blue_gray"
                 android:textSize="12sp"
                 android:textStyle="bold"

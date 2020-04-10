@@ -1,7 +1,7 @@
 package com.davidmendozamartinez.gangame
 
 object PriceFormatter {
-    val FORMAT_PRICE = "$%.2f"
+    private const val FORMAT_PRICE = "$%.2f"
     fun priceFormatted(price: Float) = String.format(FORMAT_PRICE, price)
 }
 
@@ -22,7 +22,7 @@ data class Deal(
 
 data class TopGame(
     var title: String,
-    var owners: Int,
+    var owners: String,
     var steamRating: Int,
     var publisher: String,
     var price: Float,
