@@ -7,13 +7,13 @@
         android:title="@string/title_top_rated" />
 
     <item
-        android:id="@+id/action_top_owned"
-        android:icon="@drawable/ic_most_owned"
-        android:title="@string/title_top_owned" />
-
-    <item
         android:id="@+id/action_deals"
         android:icon="@drawable/ic_deals"
         android:title="@string/title_deals" />
+
+    <item
+        android:id="@+id/action_top_owned"
+        android:icon="@drawable/ic_most_owned"
+        android:title="@string/title_most_owned" />
 
 </menu>

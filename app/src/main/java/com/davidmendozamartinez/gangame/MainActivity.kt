@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.davidmendozamartinez.gangame.deals.DealsFragment
-import com.davidmendozamartinez.gangame.owned.TopOwnedFragment
+import com.davidmendozamartinez.gangame.owned.MostOwnedFragment
 import com.davidmendozamartinez.gangame.rated.TopRatedFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private val fragments: HashMap<Int, Fragment> = hashMapOf(
         Pair(R.id.action_deals, DealsFragment()),
-        Pair(R.id.action_top_owned, TopOwnedFragment()),
-        Pair(R.id.action_top_rated, TopRatedFragment())
+        Pair(R.id.action_top_rated, TopRatedFragment()),
+        Pair(R.id.action_top_owned, MostOwnedFragment())
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
             if (fragment != null)
                 replaceFragment(fragment)
-
             true
         }
     }

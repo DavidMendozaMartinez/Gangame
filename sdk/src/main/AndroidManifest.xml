@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.davidmendozamartinez.gangame.sdk" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.davidmendozamartinez.gangame.sdk">
+
+    <application
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m" />
+</manifest>

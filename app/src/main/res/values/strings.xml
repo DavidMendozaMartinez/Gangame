@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Gangame</string>
-    <string name="title_deals">Deals</string>
-    <string name="title_top_owned">Top Owned</string>
+
+    <!-- MainActivity -->
     <string name="title_top_rated">Top Rated</string>
+    <string name="title_deals">Deals</string>
+    <string name="title_most_owned">Most Owned</string>
+    <string name="description_thumb">Game thumbnail</string>
+    <string name="label_retry">Retry</string>
+
+    <!-- TopRatedFragment -->
+    <string name="error_top_rated_games_request">An error occurred when requesting the top rated games</string>
+
+    <!-- DealsFragment -->
     <string name="label_ratings">Ratings</string>
     <string name="label_deal_price">Deal Price</string>
     <string name="label_original">Original</string>
-    <string name="description_thumb">Game thumbnail</string>
+    <string name="error_deals_request">An error occurred when requesting the deals</string>
+
+    <!-- MostOwnedFragment -->
+    <string name="error_most_owned_games_request">An error occurred when requesting the most owned games</string>
 </resources>
