@@ -6,6 +6,7 @@
     <string name="title_deals">Deals</string>
     <string name="title_most_owned">Most Owned</string>
     <string name="description_thumb">Game thumbnail</string>
+    <string name="error_request">An error occurred when requesting the information</string>
     <string name="label_retry">Retry</string>
 
     <!-- TopRatedFragment -->

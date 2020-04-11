@@ -1,46 +1,50 @@
 package com.davidmendozamartinez.gangame.deals
 
+import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
 import com.davidmendozamartinez.commons.BaseListFragment
 import com.davidmendozamartinez.commons.DataBindingRecyclerAdapter
 import com.davidmendozamartinez.gangame.BR
 import com.davidmendozamartinez.gangame.Deal
 import com.davidmendozamartinez.gangame.R
-import com.davidmendozamartinez.gangame.data.GangameDataSource
+import com.davidmendozamartinez.gangame.Status
 import com.google.android.material.snackbar.Snackbar
 
-
 class DealsFragment : BaseListFragment() {
+    private lateinit var viewModel: DealsViewModel
 
-    override fun onResume() {
-        getDeals()
-        super.onResume()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel = activity?.run {
+            ViewModelProvider(this).get() as DealsViewModel
+        } ?: throw Exception("Invalid Activity")
+
+        viewModel.deals.observe(this, Observer { deals ->
+            when (deals.status) {
+                Status.LOADING -> {
+                }
+                Status.SUCCESS -> deals.data?.run { replaceItems(this) }
+                Status.ERROR -> showError()
+            }
+        })
     }
 
     override fun getAdapter(): RecyclerView.Adapter<*> =
         DataBindingRecyclerAdapter<Deal>(BR.deal, R.layout.item_deal)
 
-    private fun getDeals() {
-        GangameDataSource
-            .getDeals()
-            .subscribe({ list ->
-                replaceItems(list)
-            }, { error ->
-                showError(error)
-            })
-    }
-
-    private fun replaceItems(list: List<Deal>) {
+    private fun replaceItems(list: ArrayList<Deal>) {
         (listAdapter as DataBindingRecyclerAdapter<Deal>).setItems(list.toMutableList())
     }
 
-    private fun showError(error: Throwable) {
-        error.printStackTrace()
-
+    private fun showError() {
         view?.let {
             Snackbar.make(view as View, R.string.error_deals_request, Snackbar.LENGTH_LONG)
-                .setAction(R.string.label_retry) { _ -> getDeals() }
+                .setAction(R.string.label_retry) { _ -> viewModel.getDeals() }
         }
     }
 }
