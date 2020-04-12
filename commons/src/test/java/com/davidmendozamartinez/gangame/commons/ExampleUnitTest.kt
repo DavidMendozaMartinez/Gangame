@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.commons
+package com.davidmendozamartinez.gangame.commons
 
 import org.junit.Test
 

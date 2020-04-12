@@ -6,8 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
-import com.davidmendozamartinez.commons.BaseListFragment
-import com.davidmendozamartinez.commons.DataBindingRecyclerAdapter
+import com.davidmendozamartinez.gangame.commons.BaseListFragment
+import com.davidmendozamartinez.gangame.commons.DataBindingRecyclerAdapter
 import com.davidmendozamartinez.gangame.BR
 import com.davidmendozamartinez.gangame.Deal
 import com.davidmendozamartinez.gangame.R

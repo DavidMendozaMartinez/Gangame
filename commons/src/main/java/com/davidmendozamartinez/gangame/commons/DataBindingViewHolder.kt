@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.commons
+package com.davidmendozamartinez.gangame.commons
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
