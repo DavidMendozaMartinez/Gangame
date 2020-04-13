@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.gangame.commons
+package com.davidmendozamartinez.gangame.commons.view
 
 import android.graphics.Rect
 import android.view.View

@@ -48,7 +48,7 @@ class MostOwnedFragment : BaseListFragment() {
                 view as View,
                 R.string.error_most_owned_games_request,
                 Snackbar.LENGTH_LONG
-            ).setAction(R.string.label_retry) { _ -> viewModel.getMostOwned() }
+            ).setAction(R.string.label_retry) { viewModel.getMostOwned() }
         }
     }
 }

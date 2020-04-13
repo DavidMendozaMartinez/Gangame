@@ -45,7 +45,7 @@ class DealsFragment : BaseListFragment() {
     private fun showError() {
         view?.let {
             Snackbar.make(view as View, R.string.error_deals_request, Snackbar.LENGTH_LONG)
-                .setAction(R.string.label_retry) { _ -> viewModel.getDeals() }
+                .setAction(R.string.label_retry) { viewModel.getDeals() }
         }
     }
 }

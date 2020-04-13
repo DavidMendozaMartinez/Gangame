@@ -48,7 +48,7 @@ class TopRatedFragment : BaseListFragment() {
                 view as View,
                 R.string.error_top_rated_games_request,
                 Snackbar.LENGTH_LONG
-            ).setAction(R.string.label_retry) { _ -> viewModel.getTopRated() }
+            ).setAction(R.string.label_retry) { viewModel.getTopRated() }
         }
     }
 }
