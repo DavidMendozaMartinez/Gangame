@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.gangame.data
+package com.davidmendozamartinez.gangame.data.mapper
 
 import com.davidmendozamartinez.gangame.Deal
 

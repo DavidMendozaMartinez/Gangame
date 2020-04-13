@@ -3,9 +3,9 @@ package com.davidmendozamartinez.gangame.owned
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davidmendozamartinez.gangame.Resource
 import com.davidmendozamartinez.gangame.TopGame
 import com.davidmendozamartinez.gangame.data.GangameDataSource
+import com.davidmendozamartinez.gangame.data.Resource
 import io.reactivex.disposables.CompositeDisposable
 
 class MostOwnedViewModel : ViewModel() {
@@ -21,9 +21,6 @@ class MostOwnedViewModel : ViewModel() {
     fun getMostOwned() {
         val disposable = GangameDataSource
             .getMostOwned()
-            .doOnSubscribe {
-                _games.value = Resource.loading()
-            }
             .subscribe({ list ->
                 _games.value = Resource.success(list)
             }, { error ->

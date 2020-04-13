@@ -2,13 +2,16 @@ package com.davidmendozamartinez.gangame.data
 
 import com.davidmendozamartinez.gangame.Deal
 import com.davidmendozamartinez.gangame.TopGame
-import com.davidmendozamartinez.gangame.sdk.GangameApiService
+import com.davidmendozamartinez.gangame.data.mapper.DealMapper
+import com.davidmendozamartinez.gangame.data.mapper.TopGameMapper
+import com.davidmendozamartinez.gangame.sdk.retrofit.GangameApiService
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 object GangameDataSource {
-    val apiService = GangameApiService()
+    private val apiService =
+        GangameApiService()
 
     fun getDeals(): Observable<ArrayList<Deal>> =
         apiService.apiClient

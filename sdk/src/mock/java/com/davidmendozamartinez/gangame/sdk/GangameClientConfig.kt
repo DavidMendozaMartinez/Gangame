@@ -1,5 +1,6 @@
 package com.davidmendozamartinez.gangame.sdk
 
+import com.davidmendozamartinez.gangame.sdk.retrofit.GangameApiConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 

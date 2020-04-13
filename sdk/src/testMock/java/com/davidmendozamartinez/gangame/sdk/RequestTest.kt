@@ -1,5 +1,6 @@
 package com.davidmendozamartinez.gangame.sdk
 
+import com.davidmendozamartinez.gangame.sdk.retrofit.GangameApiService
 import com.davidmendozamartinez.gangame.sdk.serializer.TopGameDeserializer
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -12,13 +13,14 @@ class RequestTest {
     @Test
     fun dealRequestSuccess() {
         val apiService = GangameApiService()
-        val response = apiService.apiClient.getDeals().execute()
-        val deals = response.body()
+        val dealsObserver = apiService.apiClient.getDealsObservable().test()
+        val deals = dealsObserver.values().first()
 
         val jsonResponse: JsonArray =
             JsonParser.parseString(MockResponses.DEALS_RESPONSE).asJsonArray
 
-        Assert.assertTrue(response.isSuccessful)
+        dealsObserver.assertComplete()
+        dealsObserver.dispose()
 
         deals?.let {
             Assert.assertEquals(deals.size, jsonResponse.size())
@@ -34,13 +36,14 @@ class RequestTest {
                 }
             }
         }
+
     }
 
     @Test
     fun topRatedRequestSuccess() {
         val apiService = GangameApiService()
-        val response = apiService.apiClient.getTopRatedGames().execute()
-        val topGames = response.body()
+        val topGamesObserver = apiService.apiClient.getTopRatedGamesObservable().test()
+        val topGames = topGamesObserver.values().first()
 
         val jsonResponse: List<JsonObject> =
             JsonParser.parseString(MockResponses.TOP_GAMES_RESPONSE)
@@ -50,7 +53,8 @@ class RequestTest {
                     json.asJsonObject
                 }
 
-        Assert.assertTrue(response.isSuccessful)
+        topGamesObserver.assertComplete()
+        topGamesObserver.dispose()
 
         topGames?.let {
             Assert.assertEquals(topGames.size, jsonResponse.size)

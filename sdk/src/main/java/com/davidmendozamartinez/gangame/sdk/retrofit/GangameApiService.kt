@@ -1,5 +1,8 @@
-package com.davidmendozamartinez.gangame.sdk
+package com.davidmendozamartinez.gangame.sdk.retrofit
 
+import com.davidmendozamartinez.gangame.sdk.GangameClientConfig
+import com.davidmendozamartinez.gangame.sdk.Routes
+import com.davidmendozamartinez.gangame.sdk.TopGame
 import com.davidmendozamartinez.gangame.sdk.serializer.ListTopGameDeserializer
 import com.davidmendozamartinez.gangame.sdk.serializer.TopGameDeserializer
 import com.google.gson.GsonBuilder

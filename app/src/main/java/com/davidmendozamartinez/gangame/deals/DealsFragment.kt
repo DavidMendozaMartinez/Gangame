@@ -6,12 +6,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
-import com.davidmendozamartinez.gangame.commons.BaseListFragment
-import com.davidmendozamartinez.gangame.commons.DataBindingRecyclerAdapter
 import com.davidmendozamartinez.gangame.BR
 import com.davidmendozamartinez.gangame.Deal
 import com.davidmendozamartinez.gangame.R
-import com.davidmendozamartinez.gangame.Status
+import com.davidmendozamartinez.gangame.commons.BaseListFragment
+import com.davidmendozamartinez.gangame.commons.databinding.DataBindingRecyclerAdapter
+import com.davidmendozamartinez.gangame.data.Status
 import com.google.android.material.snackbar.Snackbar
 
 class DealsFragment : BaseListFragment() {
@@ -26,8 +26,6 @@ class DealsFragment : BaseListFragment() {
 
         viewModel.deals.observe(this, Observer { deals ->
             when (deals.status) {
-                Status.LOADING -> {
-                }
                 Status.SUCCESS -> deals.data?.run { replaceItems(this) }
                 Status.ERROR -> showError()
             }
@@ -35,7 +33,10 @@ class DealsFragment : BaseListFragment() {
     }
 
     override fun getAdapter(): RecyclerView.Adapter<*> =
-        DataBindingRecyclerAdapter<Deal>(BR.deal, R.layout.item_deal)
+        DataBindingRecyclerAdapter<Deal>(
+            BR.deal,
+            R.layout.item_deal
+        )
 
     private fun replaceItems(list: ArrayList<Deal>) {
         (listAdapter as DataBindingRecyclerAdapter<Deal>).setItems(list.toMutableList())

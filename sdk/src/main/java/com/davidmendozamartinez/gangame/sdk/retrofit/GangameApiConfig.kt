@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.gangame.sdk
+package com.davidmendozamartinez.gangame.sdk.retrofit
 
 import retrofit2.Retrofit
 

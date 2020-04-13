@@ -1,10 +1,12 @@
 package com.davidmendozamartinez.gangame.sdk
 
+import com.davidmendozamartinez.gangame.sdk.retrofit.GangameApiConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
-class GangameClientConfig : GangameApiConfig {
+class GangameClientConfig :
+    GangameApiConfig {
 
     override fun setupConfig(builder: Retrofit.Builder) {
         val okHttpClient = OkHttpClient.Builder()

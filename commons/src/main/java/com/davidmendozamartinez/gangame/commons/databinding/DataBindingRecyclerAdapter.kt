@@ -1,4 +1,4 @@
-package com.davidmendozamartinez.gangame.commons
+package com.davidmendozamartinez.gangame.commons.databinding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,7 +27,10 @@ class DataBindingRecyclerAdapter<MODEL>(
             parent,
             false
         )
-        return DataBindingViewHolder(itemVariableId, binding)
+        return DataBindingViewHolder(
+            itemVariableId,
+            binding
+        )
     }
 
     override fun onBindViewHolder(holder: DataBindingViewHolder<MODEL>, position: Int) {
