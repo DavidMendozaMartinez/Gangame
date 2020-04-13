@@ -2,7 +2,6 @@ package com.davidmendozamartinez.gangame.commons
 
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -21,7 +20,9 @@ abstract class BaseListFragment : BaseFragment() {
 
         view.list?.run {
             adapter = listAdapter
-            layoutManager = LinearLayoutManager(context)
+
+            val space: Int = resources.getDimension(R.dimen.normal_space).toInt()
+            addItemDecoration(SpaceItemDecoration(space, true))
         }
     }
 

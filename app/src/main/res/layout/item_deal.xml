@@ -33,7 +33,7 @@
                 android:contentDescription="@string/description_thumb"
                 app:imageUrl="@{ deal.thumb }"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="h,1:0.5"
+                app:layout_constraintDimensionRatio="h,1:1"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -82,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:drawableStart="@drawable/ic_metacritic_rating"
                 android:drawableLeft="@drawable/ic_metacritic_rating"
                 android:drawablePadding="4dp"
@@ -89,8 +90,10 @@
                 android:textColor="@color/blue_gray"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/labelRatings"
                 app:layout_constraintTop_toBottomOf="@+id/labelRatings"
+                app:layout_constraintVertical_bias="0.0"
                 tools:text="50" />
 
             <TextView
@@ -106,6 +109,7 @@
                 android:textColor="@color/blue_gray"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/labelMetacriticScore"
                 app:layout_constraintStart_toEndOf="@+id/labelMetacriticScore"
                 app:layout_constraintTop_toTopOf="@+id/labelMetacriticScore"
                 tools:text="50" />
@@ -128,8 +132,8 @@
                 android:id="@+id/labelOriginal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="4dp"
