@@ -38,9 +38,9 @@ class MostOwnedFragment : BaseListFragment() {
             R.layout.item_top_game
         )
 
-    private fun replaceItems(list: ArrayList<TopGame>) {
+    private fun replaceItems(list: ArrayList<TopGame>) =
+        @Suppress("UNCHECKED_CAST")
         (listAdapter as DataBindingRecyclerAdapter<TopGame>).setItems(list.toMutableList())
-    }
 
     private fun showError() {
         view?.let {

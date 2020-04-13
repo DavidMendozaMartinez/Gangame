@@ -38,9 +38,9 @@ class DealsFragment : BaseListFragment() {
             R.layout.item_deal
         )
 
-    private fun replaceItems(list: ArrayList<Deal>) {
+    private fun replaceItems(list: ArrayList<Deal>) =
+        @Suppress("UNCHECKED_CAST")
         (listAdapter as DataBindingRecyclerAdapter<Deal>).setItems(list.toMutableList())
-    }
 
     private fun showError() {
         view?.let {
