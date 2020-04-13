@@ -29,6 +29,7 @@ object GangameDataSource {
         apiService.apiClient
             .getTopRatedGamesObservable()
             .map { listTopGame ->
+                listTopGame.sortByDescending { (it.positive.toFloat() / (it.positive + it.negative)) }
                 val topGames = listTopGame.mapIndexed { index, topGame ->
                     TopGameMapper.fromSdk(
                         topGame,
